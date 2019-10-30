@@ -1,8 +1,9 @@
-from flaskblog import db, login_manager
+from flaskblog import db, login_manager, admin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from datetime import datetime
-from flask_login import UserMixin
+from flask_login import UserMixin,current_user
 from flask import current_app
+from flask_admin.contrib.sqla import ModelView
 
 # create a decorated function
 # load_user = login_manager.user_loader(load_user)
@@ -51,3 +52,16 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}','{self.date_posted}')"
+
+# class MyModelView(ModelView):
+#     def is_accessible(self):
+#         return login.current_user.is_authenticated
+    
+#     def inaccessible_callback(self, name, **kwargs):
+#         # redirect to login page if user doesn't have access
+#         return redirect(url_for('users.login', next=request.url))
+
+
+
+# admin.add_view(ModelView(User, db.session))
+# admin.add_view(ModelView(Post, db.session))

@@ -3,9 +3,9 @@ import os
 
 class Config:
     
-    SECRET_KEY = os.environ.get('SECRET_KEY')  
+    SECRET_KEY = os.getenv('SECRET_KEY')  
     # SECRET_KEY = 'dc1e593547d2fe6360915b6ce5bc091a'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = os.getenv('SQLALCHEMY_DATABASE_URI')
     # SQLALCHEMY_DATABASE_URI ='sqlite:///site.db'
     # Mail config
     MAIL_SERVER = 'smtp.gmail.com'
@@ -16,9 +16,9 @@ class Config:
     MAIL_USE_SSL = True
     # MAIL_USE_TLS = True
     # MAIL_USERNAME = '6aa1b105d5f87a'
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
     # MAIL_PASSWORD = 'c2eded0939c1de'
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
 
 
 

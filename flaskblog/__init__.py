@@ -6,6 +6,10 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
 from flaskblog.config import Config
+from flask_admin import Admin
+
+
+
 
 
 
@@ -13,6 +17,7 @@ db = SQLAlchemy()
 bcrypt = Bcrypt()
 mail = Mail()
 login_manager = LoginManager()
+admin = Admin()
 # the function to redirect if we attemp to access login_required view
 login_manager.login_view = 'users.login'
 # customize message category if we attemp to access login_required view
@@ -29,6 +34,7 @@ def create_app(config_class=Config):
     bcrypt.init_app(app)
     mail.init_app(app)
     login_manager.init_app(app)
+    admin.init_app(app)
 
     from flaskblog.users.rootes import users
     from flaskblog.posts.rootes import posts
